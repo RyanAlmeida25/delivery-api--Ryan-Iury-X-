@@ -53,3 +53,181 @@ Ryan Iury Xavier Laranjeira de Almeida
 RA: 13625110675  Turma: Análise e Desenvolvimento de sistemas FPB
 
 Desenvolvido com JDK 21 e Spring Boot 3.2.x
+
+
+API REST para gerenciamento de clientes, restaurantes, produtos e pedidos em uma plataforma de delivery.
+
+🚀 Tecnologias utilizadas
+
+Java 17+
+Spring Boot
+Spring Data JPA
+H2 (ou outro banco relacional)
+Maven
+
+
+▶️ Como executar o projeto
+
+
+Clone o repositório:
+git clone https://github.com/seu-usuario/deliverytech.git
+cd deliverytech
+
+
+Execute o projeto:
+./mvnw spring-boot:run
+
+
+Acesse a API:
+http://localhost:8080
+
+
+
+🧪 Como testar
+Execute os testes com o comando:
+./mvnw test
+Certifique-se de que o banco de dados de testes (ex: H2) está configurado corretamente.
+
+📘 Exemplos de uso dos endpoints
+Cliente
+
+
+POST /clientes
+Cadastrar cliente
+Body:
+{
+"nome": "João Silva",
+"email": "joao@email.com",
+"telefone": "99999-9999"
+}
+
+
+GET /clientes
+Listar clientes ativos
+
+
+GET /clientes/{id}
+Buscar cliente por ID
+
+
+PUT /clientes/{id}
+Atualizar cliente
+Body:
+{
+"nome": "João Atualizado",
+"telefone": "88888-8888"
+}
+
+
+DELETE /clientes/{id}
+Inativar cliente
+
+
+
+Restaurante
+
+
+POST /restaurantes
+Cadastrar restaurante
+Body:
+{
+"nome": "Pizza da Vila",
+"categoria": "Pizza",
+"avaliacao": 4.5
+}
+
+
+GET /restaurantes
+Listar todos os restaurantes
+
+
+GET /restaurantes/ativos
+Listar restaurantes ativos
+
+
+GET /restaurantes/{id}
+Buscar restaurante por ID
+
+
+PUT /restaurantes/{id}
+Atualizar restaurante
+
+
+DELETE /restaurantes/{id}
+Inativar restaurante
+
+
+PUT /restaurantes/{id}/ativar
+Ativar restaurante
+
+
+GET /restaurantes/categoria/{categoria}
+Buscar restaurantes por categoria
+
+
+
+Produto
+
+
+POST /produtos/restaurante/{restauranteId}
+Cadastrar produto para restaurante
+Body:
+{
+"nome": "Pizza Calabresa",
+"descricao": "Com queijo e cebola",
+"categoria": "Pizza",
+"preco": 39.90
+}
+
+
+GET /produtos/restaurante/{restauranteId}
+Listar produtos por restaurante
+
+
+GET /produtos/{id}
+Buscar produto por ID
+
+
+PUT /produtos/{id}
+Atualizar produto
+
+
+PUT /produtos/{id}/disponibilidade?disponivel=true
+Alterar disponibilidade do produto
+
+
+GET /produtos/categoria/{categoria}
+Buscar produtos por categoria
+
+
+GET /produtos/nome/{nome}
+Buscar produtos por nome
+
+
+
+Pedido
+
+
+POST /pedidos/cliente/{clienteId}
+Criar pedido
+Body:
+{
+"valorTotal": 100.0
+}
+
+
+PUT /pedidos/{id}/status?status=FINALIZADO
+Atualizar status do pedido
+
+
+GET /pedidos/cliente/{clienteId}
+Buscar pedidos por cliente
+
+
+GET /pedidos/{id}
+Buscar pedido por ID
+
+
+
+📄 Licença
+Este projeto é open-source e está sob a licença MIT.

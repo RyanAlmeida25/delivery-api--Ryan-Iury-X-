@@ -40,3 +40,16 @@ H2 Database (em memória)
 Spring DevTools
 Lombok
 Maven
+
+🔧 Configuração
+
+Porta: 8080
+Banco de dados: H2 (em memória)
+Profile ativo: development
+
+# Desenvolvedor
+
+Ryan Iury Xavier Laranjeira de Almeida
+RA: 13625110675  Turma: Análise e Desenvolvimento de sistemas FPB
+
+Desenvolvido com JDK 21 e Spring Boot 3.2.x
